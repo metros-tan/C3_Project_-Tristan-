@@ -54,6 +54,15 @@ public class Restaurant {
                 +"Menu:"+"\n"+getMenu());
 
     }
+    public Integer findItemPriceByName(List<String> itemName){
+        int sum = 0;
+        for(Item item: menu) {
+            if(Item.getName().equals(itemName))
+                sum = sum + Item.getPrice ();
+            return sum;
+        }
+        return null;
+    }
 
     public String getName() {
         return name;
