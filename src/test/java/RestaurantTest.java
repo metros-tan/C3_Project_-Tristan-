@@ -4,6 +4,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith (MockitoExtension.class)
@@ -72,6 +74,22 @@ class RestaurantTest {
 
         assertThrows(itemNotFoundException.class,
                 ()->restaurant.removeFromMenu("French fries"));
+    }
+
+    @Test
+    public void sum_total_of_selected_menu_item_prices_should_return() {
+        LocalTime openingTime = LocalTime.parse ("10:30:00");
+        LocalTime closingTime = LocalTime.parse ("22:00:00");
+        restaurant = new Restaurant ("Amelie's cafe", "Chennai", openingTime, closingTime);
+        restaurant.addToMenu ("Sweet corn soup", 1);
+        restaurant.addToMenu ("Vegetable lasagne", 2);
+        restaurant.addToMenu ("Sizzling brownie", 3);
+        List<String> itemName = new ArrayList<String> ();
+        itemName.add ("Sweet corn soup");
+        itemName.add ("Vegetable lasagne");
+        itemName.add ("Sizzling brownie");
+        assertEquals ( "388" , restaurant.TotalofItemssByNames(itemName));
+
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
