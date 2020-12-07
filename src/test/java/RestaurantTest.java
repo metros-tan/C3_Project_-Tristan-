@@ -88,7 +88,7 @@ class RestaurantTest {
         itemName.add ("Sweet corn soup");
         itemName.add ("Vegetable lasagne");
         itemName.add ("Sizzling brownie");
-        assertEquals ( "388" , restaurant.TotalofItemssByNames(itemName));
+        assertEquals ( 6 , restaurant.TotalofItemssByNames(itemName));
 
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

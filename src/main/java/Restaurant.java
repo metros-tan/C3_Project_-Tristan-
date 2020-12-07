@@ -54,14 +54,13 @@ public class Restaurant {
                 +"Menu:"+"\n"+getMenu());
 
     }
-    public Integer TotalofItemssByNames(List<String> itemName){
+    public int TotalofItemssByNames(List<String> itemName){
         int sum = 0;
-        for(Item item: menu) {
-            if(item.getName().equals(itemName))
-                sum = sum + item.getPrice ();
-            return sum;
+        for(String item : itemName) {
+            Item name1 = findItemByName (item);
+            sum = sum + name1.getPrice();
         }
-        return null;
+        return sum;
     }
 
     public String getName() {
